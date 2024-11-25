@@ -25,46 +25,52 @@ interface notificationType {
 }
 
 const notifications: notificationType[] = [
-  {
-    avatar: img1,
-    title: 'Roman Joined the Team!',
-    subtitle: 'Congratulate him',
-  },
-  {
-    avatar: img2,
-    title: 'New message received',
-    subtitle: 'Salma sent you new message',
-  },
-  {
-    avatar: img3,
-    title: 'New Payment received',
-    subtitle: 'Check your earnings',
-  },
-  {
-    avatar: img4,
-    title: 'Jolly completed tasks',
-    subtitle: 'Assign her new tasks',
-  },
-  {
-    avatar: img1,
-    title: 'Roman Joined the Team!',
-    subtitle: 'Congratulate him',
-  },
-  {
-    avatar: img2,
-    title: 'New message received',
-    subtitle: 'Salma sent you new message',
-  },
-  {
-    avatar: img3,
-    title: 'New Payment received',
-    subtitle: 'Check your earnings',
-  },
-  {
-    avatar: img4,
-    title: 'Jolly completed tasks',
-    subtitle: 'Assign her new tasks',
-  },
+
+
+
+  // {
+  //   avatar: img1,
+  //   title: 'Roman Joined the Team!',
+  //   subtitle: 'Congratulate him',
+  // },
+  // {
+  //   avatar: img2,
+  //   title: 'New message received',
+  //   subtitle: 'Salma sent you new message',
+  // },
+  // {
+  //   avatar: img3,
+  //   title: 'New Payment received',
+  //   subtitle: 'Check your earnings',
+  // },
+  // {
+  //   avatar: img4,
+  //   title: 'Jolly completed tasks',
+  //   subtitle: 'Assign her new tasks',
+  // },
+  // {
+  //   avatar: img1,
+  //   title: 'Roman Joined the Team!',
+  //   subtitle: 'Congratulate him',
+  // },
+  // {
+  //   avatar: img2,
+  //   title: 'New message received',
+  //   subtitle: 'Salma sent you new message',
+  // },
+  // {
+  //   avatar: img3,
+  //   title: 'New Payment received',
+  //   subtitle: 'Check your earnings',
+  // },
+  // {
+  //   avatar: img4,
+  //   title: 'Jolly completed tasks',
+  //   subtitle: 'Assign her new tasks',
+  // },
+
+
+
 ];
 
 //
@@ -124,18 +130,24 @@ const profile: ProfileType[] = [
     subtitle: 'Account Settings',
     icon: icon1,
   },
-  {
-    href: '/apps/email',
-    title: 'My Inbox',
-    subtitle: 'Messages & Emails',
-    icon: icon2,
-  },
-  {
-    href: '/apps/notes',
-    title: 'My Tasks',
-    subtitle: 'To-do and Daily Tasks',
-    icon: icon3,
-  },
+
+
+
+  // {
+  //   href: '/apps/email',
+  //   title: 'My Inbox',
+  //   subtitle: 'Messages & Emails',
+  //   icon: icon2,
+  // },
+  // {
+  //   href: '/apps/notes',
+  //   title: 'My Tasks',
+  //   subtitle: 'To-do and Daily Tasks',
+  //   icon: icon3,
+  // },
+
+
+
 ];
 
 // apps dropdown

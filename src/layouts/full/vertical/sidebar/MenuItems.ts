@@ -252,36 +252,36 @@ const Menuitems: MenuitemsType[] = [
       },
     ],
   },
-  {
-    id: uniqueId(),
-    title: 'Notes',
-    icon: IconNotes,
-    href: '/apps/notes',
-  },
-  {
-    id: uniqueId(),
-    title: 'Calendar',
-    icon: IconCalendar,
-    href: '/apps/calendar',
-  },
-  {
-    id: uniqueId(),
-    title: 'Email',
-    icon: IconMail,
-    href: '/apps/email',
-  },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Notes',
+  //   icon: IconNotes,
+  //   href: '/apps/notes',
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Calendar',
+  //   icon: IconCalendar,
+  //   href: '/apps/calendar',
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Email',
+  //   icon: IconMail,
+  //   href: '/apps/email',
+  // },
   {
     id: uniqueId(),
     title: 'Tickets',
     icon: IconTicket,
     href: '/apps/tickets',
   },
-  {
-    id: uniqueId(),
-    title: 'Kanban',
-    icon: IconNotebook,
-    href: '/apps/kanban',
-  },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Kanban',
+  //   icon: IconNotebook,
+  //   href: '/apps/kanban',
+  // },
 
   {
     id: uniqueId(),
@@ -321,18 +321,18 @@ const Menuitems: MenuitemsType[] = [
     subheader: 'Pages',
   },
 
-  {
-    id: uniqueId(),
-    title: 'Treeview',
-    icon: IconGitMerge,
-    href: '/pages/treeview',
-  },
-  {
-    id: uniqueId(),
-    title: 'Pricing',
-    icon: IconCurrencyDollar,
-    href: '/pages/pricing',
-  },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Treeview',
+  //   icon: IconGitMerge,
+  //   href: '/pages/treeview',
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Pricing',
+  //   icon: IconCurrencyDollar,
+  //   href: '/pages/pricing',
+  // },
   {
     id: uniqueId(),
     title: 'Account Setting',
@@ -351,32 +351,32 @@ const Menuitems: MenuitemsType[] = [
     icon: IconAppWindow,
     href: '/landingpage',
   },
-  {
-    id: uniqueId(),
-    title: 'Widgets',
-    icon: IconLayout,
-    href: '/widgets/cards',
-    children: [
-      {
-        id: uniqueId(),
-        title: 'Cards',
-        icon: IconPoint,
-        href: '/widgets/cards',
-      },
-      {
-        id: uniqueId(),
-        title: 'Banners',
-        icon: IconPoint,
-        href: '/widgets/banners',
-      },
-      {
-        id: uniqueId(),
-        title: 'Charts',
-        icon: IconPoint,
-        href: '/widgets/charts',
-      },
-    ],
-  },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Widgets',
+  //   icon: IconLayout,
+  //   href: '/widgets/cards',
+  //   children: [
+  //     {
+  //       id: uniqueId(),
+  //       title: 'Cards',
+  //       icon: IconPoint,
+  //       href: '/widgets/cards',
+  //     },
+  //     {
+  //       id: uniqueId(),
+  //       title: 'Banners',
+  //       icon: IconPoint,
+  //       href: '/widgets/banners',
+  //     },
+  //     {
+  //       id: uniqueId(),
+  //       title: 'Charts',
+  //       icon: IconPoint,
+  //       href: '/widgets/charts',
+  //     },
+  //   ],
+  // },
   {
     navlabel: true,
     subheader: 'Forms',
@@ -678,52 +678,52 @@ const Menuitems: MenuitemsType[] = [
     ],
   },
 
-  {
-    navlabel: true,
-    subheader: 'Charts',
-  },
-  {
-    id: uniqueId(),
-    title: 'Line',
-    icon: IconChartLine,
-    href: '/charts/line-chart',
-  },
-  {
-    id: uniqueId(),
-    title: 'Gredient',
-    icon: IconChartArcs,
-    href: '/charts/gredient-chart',
-  },
-  {
-    id: uniqueId(),
-    title: 'Area',
-    icon: IconChartArea,
-    href: '/charts/area-chart',
-  },
-  {
-    id: uniqueId(),
-    title: 'Candlestick',
-    icon: IconChartCandle,
-    href: '/charts/candlestick-chart',
-  },
-  {
-    id: uniqueId(),
-    title: 'Column',
-    icon: IconChartDots,
-    href: '/charts/column-chart',
-  },
-  {
-    id: uniqueId(),
-    title: 'Doughtnut & Pie',
-    icon: IconChartDonut3,
-    href: '/charts/doughnut-pie-chart',
-  },
-  {
-    id: uniqueId(),
-    title: 'RadialBar & Radar',
-    icon: IconChartRadar,
-    href: '/charts/radialbar-chart',
-  },
+  // {
+  //   navlabel: true,
+  //   subheader: 'Charts',
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Line',
+  //   icon: IconChartLine,
+  //   href: '/charts/line-chart',
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Gredient',
+  //   icon: IconChartArcs,
+  //   href: '/charts/gredient-chart',
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Area',
+  //   icon: IconChartArea,
+  //   href: '/charts/area-chart',
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Candlestick',
+  //   icon: IconChartCandle,
+  //   href: '/charts/candlestick-chart',
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Column',
+  //   icon: IconChartDots,
+  //   href: '/charts/column-chart',
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Doughtnut & Pie',
+  //   icon: IconChartDonut3,
+  //   href: '/charts/doughnut-pie-chart',
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: 'RadialBar & Radar',
+  //   icon: IconChartRadar,
+  //   href: '/charts/radialbar-chart',
+  // },
   {
     navlabel: true,
     subheader: 'Auth',
@@ -790,26 +790,26 @@ const Menuitems: MenuitemsType[] = [
     ],
   },
 
-  {
-    id: uniqueId(),
-    title: 'Two Steps',
-    icon: IconZoomCode,
-    href: '/auth/two-steps',
-    children: [
-      {
-        id: uniqueId(),
-        title: 'Side Two Steps',
-        icon: IconPoint,
-        href: '/auth/two-steps',
-      },
-      {
-        id: uniqueId(),
-        title: 'Boxed Two Steps',
-        icon: IconPoint,
-        href: '/auth/two-steps2',
-      },
-    ],
-  },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Two Steps',
+  //   icon: IconZoomCode,
+  //   href: '/auth/two-steps',
+  //   children: [
+  //     {
+  //       id: uniqueId(),
+  //       title: 'Side Two Steps',
+  //       icon: IconPoint,
+  //       href: '/auth/two-steps',
+  //     },
+  //     {
+  //       id: uniqueId(),
+  //       title: 'Boxed Two Steps',
+  //       icon: IconPoint,
+  //       href: '/auth/two-steps2',
+  //     },
+  //   ],
+  // },
   {
     id: uniqueId(),
     title: 'Error',

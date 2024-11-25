@@ -7,11 +7,23 @@ import {
   setDarkMode,
 } from 'src/store/customizer/CustomizerSlice';
 import { IconMenu2, IconMoon, IconSun } from '@tabler/icons-react';
-import Notifications from './Notification';
+
+
+
+// import Notifications from './Notification';
+
+
+
 import Profile from './Profile';
 import Cart from './Cart';
 import Search from './Search';
-import Language from './Language';
+
+
+
+// import Language from './Language';
+
+
+
 import { AppState } from 'src/store/Store';
 import Navigation from './Navigation';
 import MobileRightSidebar from './MobileRightSidebar';
@@ -64,7 +76,13 @@ const Header = () => {
 
         <Box flexGrow={1} />
         <Stack spacing={1} direction="row" alignItems="center">
-          <Language />
+
+
+
+          {/* <Language /> */}
+
+
+          
           {/* ------------------------------------------- */}
           {/* Ecommerce Dropdown */}
           {/* ------------------------------------------- */}
@@ -79,7 +97,13 @@ const Header = () => {
               <IconSun size="21" stroke="1.5" onClick={() => dispatch(setDarkMode('light'))} />
             )}
           </IconButton>
-          <Notifications />
+
+
+
+          {/* <Notifications /> */}
+
+
+
           {/* ------------------------------------------- */}
           {/* Toggle Right Sidebar for mobile */}
           {/* ------------------------------------------- */}

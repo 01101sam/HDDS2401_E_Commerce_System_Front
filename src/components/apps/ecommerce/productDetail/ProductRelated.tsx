@@ -60,9 +60,15 @@ const ProductRelated = () => {
                 <Stack direction="row" alignItems="center" justifyContent="space-between" mt={1}>
                   <Stack direction="row" alignItems="center">
                     <Typography variant="h5">${product.price}</Typography>
-                    <Typography color={'GrayText'} ml={1} sx={{ textDecoration: 'line-through' }}>
+
+
+
+                    {/* <Typography color={'GrayText'} ml={1} sx={{ textDecoration: 'line-through' }}>
                       ${product.salesPrice}
-                    </Typography>
+                    </Typography> */}
+
+
+                    
                   </Stack>
                   <Rating name="read-only" size="small" value={product.rating} readOnly />
                 </Stack>

@@ -105,12 +105,18 @@ const AppDD = () => {
       <Button color="inherit" sx={{color: (theme) => theme.palette.text.secondary}} variant="text" to="/apps/chats" component={Link}>
         Chat
       </Button>
-      <Button color="inherit" sx={{color: (theme) => theme.palette.text.secondary}} variant="text" to="/apps/calendar" component={Link}>
+
+
+
+      {/* <Button color="inherit" sx={{color: (theme) => theme.palette.text.secondary}} variant="text" to="/apps/calendar" component={Link}>
         Calendar
       </Button>
       <Button color="inherit" sx={{color: (theme) => theme.palette.text.secondary}} variant="text" to="/apps/email" component={Link}>
         Email
-      </Button>
+      </Button> */}
+
+
+      
     </>
   );
 };

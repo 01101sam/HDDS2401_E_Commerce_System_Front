@@ -46,19 +46,25 @@ const ProductFilter = () => {
   const customizer = useSelector((state) => state.customizer);
   const br = `${customizer.borderRadius}px`;
 
-  const getUniqueData = (data: string[], attr: any) => {
-    let newVal = data.map((curElem) => {
-      return curElem[attr];
-    });
-    if (attr === 'colors') {
-      newVal = newVal.flat();
-    }
 
-    return (newVal = ['All', ...Array.from(new Set(newVal))]);
-  };
 
-  const filterbyGender = getUniqueData(products, 'gender');
-  const filterbyColors = getUniqueData(products, 'colors');
+
+  // const getUniqueData = (data: string[], attr: any) => {
+  //   let newVal = data.map((curElem) => {
+  //     return curElem[attr];
+  //   });
+  //   if (attr === 'colors') {
+  //     newVal = newVal.flat();
+  //   }
+
+  //   return (newVal = ['All', ...Array.from(new Set(newVal))]);
+  // };
+
+  // const filterbyGender = getUniqueData(products, 'gender');
+  // const filterbyColors = getUniqueData(products, 'colors');
+
+
+
 
   const filterCategory: ProductFiterType[] = [
     {
@@ -134,11 +140,17 @@ const ProductFilter = () => {
     },
   ];
 
-  const handlerGenderFilter = (value: React.ChangeEvent<HTMLInputElement>) => {
-    if (value.target.checked) {
-      dispatch(sortByGender({ gender: value.target.value }));
-    }
-  };
+
+
+
+  // const handlerGenderFilter = (value: React.ChangeEvent<HTMLInputElement>) => {
+  //   if (value.target.checked) {
+  //     dispatch(sortByGender({ gender: value.target.value }));
+  //   }
+  // };
+
+
+
   const handlerPriceFilter = (value: React.ChangeEvent<HTMLInputElement>) => {
     if (value.target.checked) {
       dispatch(sortByPrice({ price: value.target.value }));
@@ -198,10 +210,13 @@ const ProductFilter = () => {
           );
         })}
         <Divider></Divider>
+
+
+
         {/* ------------------------------------------- */}
         {/* Filter By Gender */}
         {/* ------------------------------------------- */}
-        <Box p={3}>
+        {/* <Box p={3}>
           <Typography variant="subtitle2" fontWeight={600}>
             By Gender
           </Typography>
@@ -222,10 +237,13 @@ const ProductFilter = () => {
             ))}
           </FormGroup>
         </Box>
-        <Divider></Divider>
+        <Divider></Divider> */}
         {/* ------------------------------------------- */}
         {/* Filter By Pricing */}
         {/* ------------------------------------------- */}
+
+
+        
         <Typography variant="h6" px={3} mt={3} pb={2}>
           By Pricing
         </Typography>
@@ -247,13 +265,13 @@ const ProductFilter = () => {
           </FormGroup>
         </Box>
         <Divider></Divider>
-        <Typography variant="h6" px={3} mt={3} pb={2}>
+        {/* <Typography variant="h6" px={3} mt={3} pb={2}>
           By Colors
-        </Typography>
+        </Typography> */}
         {/* ------------------------------------------- */}
         {/* Filter By colors */}
         {/* ------------------------------------------- */}
-        <Box p={3} pt={0}>
+        {/* <Box p={3} pt={0}>
           <Stack direction={'row'} flexWrap="wrap" gap={1}>
             {filterbyColors.map((curColor) => {
               if (curColor !== 'All') {
@@ -282,7 +300,7 @@ const ProductFilter = () => {
             })}
           </Stack>
         </Box>
-        <Divider></Divider>
+        <Divider></Divider> */}
         {/* ------------------------------------------- */}
         {/* Reset */}
         {/* ------------------------------------------- */}

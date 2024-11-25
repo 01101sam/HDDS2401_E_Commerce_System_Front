@@ -36,12 +36,18 @@ const ProductDetail = () => {
   // Get Products
   const product: ProductType = useSelector((state) => state.ecommerceReducer.products[Id.id - 1]);
 
-  /// select colors on click
-  const [scolor, setScolor] = useState(product ? product.colors[0] : '');
-  const setColor = (e: string) => {
-    setScolor(e);
-  };
 
+
+
+  // /// select colors on click
+  // const [scolor, setScolor] = useState(product ? product.colors[0] : '');
+  // const setColor = (e: string) => {
+  //   setScolor(e);
+  // };
+
+
+
+  
   //set qty
   const [count, setCount] = useState(1);
 
@@ -86,13 +92,19 @@ const ProductDetail = () => {
           {/* Price */}
           {/* ------------------------------------------- */}
           <Typography mt={2} variant="h4" fontWeight={600}>
-            <Box
+
+
+
+            {/* <Box
               component={'small'}
               color={theme.palette.text.secondary}
               sx={{ textDecoration: 'line-through' }}
             >
               ${product.salesPrice}
-            </Box>{' '}
+            </Box>{' '} */}
+
+
+
             ${product.price}
           </Typography>
           {/* ------------------------------------------- */}
@@ -105,10 +117,13 @@ const ProductDetail = () => {
             </Link>
           </Stack>
           <Divider />
+
+
+
           {/* ------------------------------------------- */}
           {/* Colors */}
           {/* ------------------------------------------- */}
-          <Stack py={4} direction="row" alignItems="center">
+          {/* <Stack py={4} direction="row" alignItems="center">
             <Typography variant="h6" mr={1}>
               Colors:
             </Typography>
@@ -133,11 +148,14 @@ const ProductDetail = () => {
                 </Fab>
               ))}
             </Box>
-          </Stack>
+          </Stack> */}
+
+
+          
           {/* ------------------------------------------- */}
           {/* Qty */}
           {/* ------------------------------------------- */}
-          <Stack direction="row" alignItems="center" pb={5}>
+          <Stack direction="row" alignItems="center" pb={5} py={4}>
             <Typography variant="h6" mr={4}>
               QTY:
             </Typography>
