@@ -30,7 +30,6 @@ const ProductChecout = () => {
   };
 
   const total = sum(checkout.map((product: ProductType) => product.price * product.qty));
-  const Discount = Math.round(total * (5 / 100));
 
   return (
     <Box>
@@ -53,7 +52,7 @@ const ProductChecout = () => {
                 {/* ------------------------------------------- */}
                 {/* Cart Total */}
                 {/* ------------------------------------------- */}
-                <FirstStep total={total} Discount={Discount} />
+                <FirstStep total={total} />
                 <Stack direction={'row'} justifyContent="space-between">
                   <Button
                     color="secondary"
@@ -78,7 +77,7 @@ const ProductChecout = () => {
             {/* Step2 */}
             {/* ------------------------------------------- */}
             <SecondStep nexStep={handleNext} />
-            <FirstStep total={total} Discount={Discount} />
+            <FirstStep total={total} />
             <Stack direction={'row'} justifyContent="space-between">
               <Button color="inherit" disabled={activeStep !== 1} onClick={handleBack}>
                 Back
@@ -94,7 +93,7 @@ const ProductChecout = () => {
             {/* Step3 */}
             {/* ------------------------------------------- */}
             <ThirdStep />
-            <FirstStep total={total} Discount={Discount} />
+            <FirstStep total={total} />
             <Stack direction={'row'} justifyContent="space-between">
               <Button color="inherit" disabled={activeStep === 0} onClick={handleBack}>
                 <IconArrowBack /> Back

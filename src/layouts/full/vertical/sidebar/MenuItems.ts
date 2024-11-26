@@ -68,107 +68,113 @@ import {
 } from '@tabler/icons-react';
 
 const Menuitems: MenuitemsType[] = [
-  {
-    navlabel: true,
-    subheader: 'Home',
-  },
+  // {
+  //   navlabel: true,
+  //   subheader: 'Home',
+  // },
 
-  {
-    id: uniqueId(),
-    title: 'Modern',
-    icon: IconAperture,
-    href: '/dashboards/modern',
-    chip: 'New',
-    chipColor: 'secondary',
-  },
-  {
-    id: uniqueId(),
-    title: 'eCommerce',
-    icon: IconShoppingCart,
-    href: '/dashboards/ecommerce',
-  },
-  {
-    id: uniqueId(),
-    title: 'Frontend pages',
-    icon: IconAppWindow,
-    href: '/frontend-pages/',
-    children: [
-      {
-        id: uniqueId(),
-        title: 'Homepage',
-        icon: IconPoint,
-        href: '/frontend-pages/homepage',
-      },
-      {
-        id: uniqueId(),
-        title: 'About Us',
-        icon: IconPoint,
-        href: '/frontend-pages/about',
-      },
-      {
-        id: uniqueId(),
-        title: 'Blog',
-        icon: IconPoint,
-        href: '/frontend-pages/blog',
-      },
-      {
-        id: uniqueId(),
-        title: 'Blog Details',
-        icon: IconPoint,
-        href: '/frontend-pages/blog/Blog_1',
-      },
-      {
-        id: uniqueId(),
-        title: 'Contact',
-        icon: IconPoint,
-        href: '/frontend-pages/contact',
-      },
-      {
-        id: uniqueId(),
-        title: 'Portfolio',
-        icon: IconPoint,
-        href: '/frontend-pages/portfolio',
-      },
-      {
-        id: uniqueId(),
-        title: 'Pricing',
-        icon: IconPoint,
-        href: '/frontend-pages/pricing',
-      },
-    ],
-  },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Modern',
+  //   icon: IconAperture,
+  //   href: '/dashboards/modern',
+  //   chip: 'New',
+  //   chipColor: 'secondary',
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: 'eCommerce',
+  //   icon: IconShoppingCart,
+  //   href: '/dashboards/ecommerce',
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Frontend pages',
+  //   icon: IconAppWindow,
+  //   href: '/frontend-pages/',
+  //   children: [
+  //     {
+  //       id: uniqueId(),
+  //       title: 'Homepage',
+  //       icon: IconPoint,
+  //       href: '/frontend-pages/homepage',
+  //     },
+  //     {
+  //       id: uniqueId(),
+  //       title: 'About Us',
+  //       icon: IconPoint,
+  //       href: '/frontend-pages/about',
+  //     },
+  //     {
+  //       id: uniqueId(),
+  //       title: 'Blog',
+  //       icon: IconPoint,
+  //       href: '/frontend-pages/blog',
+  //     },
+  //     {
+  //       id: uniqueId(),
+  //       title: 'Blog Details',
+  //       icon: IconPoint,
+  //       href: '/frontend-pages/blog/Blog_1',
+  //     },
+  //     {
+  //       id: uniqueId(),
+  //       title: 'Contact',
+  //       icon: IconPoint,
+  //       href: '/frontend-pages/contact',
+  //     },
+  //     {
+  //       id: uniqueId(),
+  //       title: 'Portfolio',
+  //       icon: IconPoint,
+  //       href: '/frontend-pages/portfolio',
+  //     },
+  //     {
+  //       id: uniqueId(),
+  //       title: 'Pricing',
+  //       icon: IconPoint,
+  //       href: '/frontend-pages/pricing',
+  //     },
+  //   ],
+  // },
   {
     navlabel: true,
     subheader: 'Apps',
   },
-  {
-    id: uniqueId(),
-    title: 'Contacts',
-    icon: IconPackage,
-    chip: '2',
-    chipColor: 'secondary',
-    href: '/apps/contacts',
-  },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Contacts',
+  //   icon: IconPackage,
+  //   chip: '2',
+  //   chipColor: 'secondary',
+  //   href: '/apps/contacts',
+  // },
 
+  // {
+  //   id: uniqueId(),
+  //   title: 'Blog',
+  //   icon: IconChartDonut3,
+  //   href: '/frontend-pages/blog/',
+  //   children: [
+  //     {
+  //       id: uniqueId(),
+  //       title: 'Posts',
+  //       icon: IconPoint,
+  //       href: '/frontend-pages/blog/',
+  //     },
+  //     {
+  //       id: uniqueId(),
+  //       title: 'Detail',
+  //       icon: IconPoint,
+  //       href: '/frontend-pages/blog/detail/streaming-video-way-before-it-was-cool-go-dark-tomorrow',
+  //     },
+  //   ],
+  // },
   {
     id: uniqueId(),
-    title: 'Blog',
-    icon: IconChartDonut3,
-    href: '/frontend-pages/blog/',
-    children: [
-      {
-        id: uniqueId(),
-        title: 'Posts',
-        icon: IconPoint,
-        href: '/frontend-pages/blog/',
-      },
-      {
-        id: uniqueId(),
-        title: 'Detail',
-        icon: IconPoint,
-        href: '/frontend-pages/blog/detail/streaming-video-way-before-it-was-cool-go-dark-tomorrow',
-      },
-    ],
+    title: 'Shop',
+    icon: IconBasket,
+    href: '/apps/ecommerce/shop',
   },
   {
     id: uniqueId(),
@@ -176,12 +182,12 @@ const Menuitems: MenuitemsType[] = [
     icon: IconBasket,
     href: '/apps/ecommerce/',
     children: [
-      {
-        id: uniqueId(),
-        title: 'Shop',
-        icon: IconPoint,
-        href: '/apps/ecommerce/shop',
-      },
+      // {
+      //   id: uniqueId(),
+      //   title: 'Shop',
+      //   icon: IconPoint,
+      //   href: '/apps/ecommerce/shop',
+      // },
       {
         id: uniqueId(),
         title: 'Detail',
@@ -214,44 +220,44 @@ const Menuitems: MenuitemsType[] = [
       },
     ],
   },
-  {
-    id: uniqueId(),
-    title: 'Chats',
-    icon: IconMessage2,
-    href: '/apps/chats',
-  },
-  {
-    id: uniqueId(),
-    title: 'Users',
-    icon: IconUserCircle,
-    href: '/user-profile',
-    children: [
-      {
-        id: uniqueId(),
-        title: 'Profile',
-        icon: IconPoint,
-        href: '/user-profile',
-      },
-      {
-        id: uniqueId(),
-        title: 'Followers',
-        icon: IconPoint,
-        href: '/apps/followers',
-      },
-      {
-        id: uniqueId(),
-        title: 'Friends',
-        icon: IconPoint,
-        href: '/apps/friends',
-      },
-      {
-        id: uniqueId(),
-        title: 'Gallery',
-        icon: IconPoint,
-        href: '/apps/gallery',
-      },
-    ],
-  },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Chats',
+  //   icon: IconMessage2,
+  //   href: '/apps/chats',
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Users',
+  //   icon: IconUserCircle,
+  //   href: '/user-profile',
+  //   children: [
+  //     {
+  //       id: uniqueId(),
+  //       title: 'Profile',
+  //       icon: IconPoint,
+  //       href: '/user-profile',
+  //     },
+  //     {
+  //       id: uniqueId(),
+  //       title: 'Followers',
+  //       icon: IconPoint,
+  //       href: '/apps/followers',
+  //     },
+  //     {
+  //       id: uniqueId(),
+  //       title: 'Friends',
+  //       icon: IconPoint,
+  //       href: '/apps/friends',
+  //     },
+  //     {
+  //       id: uniqueId(),
+  //       title: 'Gallery',
+  //       icon: IconPoint,
+  //       href: '/apps/gallery',
+  //     },
+  //   ],
+  // },
   // {
   //   id: uniqueId(),
   //   title: 'Notes',
@@ -270,31 +276,36 @@ const Menuitems: MenuitemsType[] = [
   //   icon: IconMail,
   //   href: '/apps/email',
   // },
-  {
-    id: uniqueId(),
-    title: 'Tickets',
-    icon: IconTicket,
-    href: '/apps/tickets',
-  },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Tickets',
+  //   icon: IconTicket,
+  //   href: '/apps/tickets',
+  // },
   // {
   //   id: uniqueId(),
   //   title: 'Kanban',
   //   icon: IconNotebook,
   //   href: '/apps/kanban',
   // },
-
+  {
+    id: uniqueId(),
+    title: 'List',
+    icon: IconFileCheck,
+    href: '/apps/invoice/list',
+  },
   {
     id: uniqueId(),
     title: 'Invoice',
     icon: IconFileCheck,
     href: '/apps/invoice/list',
     children: [
-      {
-        id: uniqueId(),
-        title: 'List',
-        icon: IconPoint,
-        href: '/apps/invoice/list',
-      },
+      // {
+      //   id: uniqueId(),
+      //   title: 'List',
+      //   icon: IconPoint,
+      //   href: '/apps/invoice/list',
+      // },
       {
         id: uniqueId(),
         title: 'Details',

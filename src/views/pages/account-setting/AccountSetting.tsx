@@ -9,9 +9,9 @@ import { Grid, Tabs, Tab, Box, CardContent, Divider } from '@mui/material';
 import AccountTab from '../../../components/pages/account-setting/AccountTab';
 import { IconArticle, IconBell, IconLock, IconUserCircle } from '@tabler/icons-react';
 import BlankCard from '../../../components/shared/BlankCard';
-import NotificationTab from '../../../components/pages/account-setting/NotificationTab';
-import BillsTab from '../../../components/pages/account-setting/BillsTab';
-import SecurityTab from '../../../components/pages/account-setting/SecurityTab';
+// import NotificationTab from '../../../components/pages/account-setting/NotificationTab';
+// import BillsTab from '../../../components/pages/account-setting/BillsTab';
+// import SecurityTab from '../../../components/pages/account-setting/SecurityTab';
 
 const BCrumb = [
   {
@@ -85,7 +85,7 @@ const AccountSetting = () => {
                   {...a11yProps(0)}
                 />
 
-                <Tab
+                {/* <Tab
                   iconPosition="start"
                   icon={<IconBell size="22" />}
                   label="Notifications"
@@ -102,7 +102,7 @@ const AccountSetting = () => {
                   icon={<IconLock size="22" />}
                   label="Security"
                   {...a11yProps(3)}
-                />
+                /> */}
               </Tabs>
             </Box>
             <Divider />
@@ -110,7 +110,7 @@ const AccountSetting = () => {
               <TabPanel value={value} index={0}>
                 <AccountTab />
               </TabPanel>
-              <TabPanel value={value} index={1}>
+              {/* <TabPanel value={value} index={1}>
                 <NotificationTab />
               </TabPanel>
               <TabPanel value={value} index={2}>
@@ -118,7 +118,7 @@ const AccountSetting = () => {
               </TabPanel>
               <TabPanel value={value} index={3}>
                 <SecurityTab />
-              </TabPanel>
+              </TabPanel> */}
             </CardContent>
           </BlankCard>
         </Grid>

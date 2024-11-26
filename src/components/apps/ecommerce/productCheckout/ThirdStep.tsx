@@ -25,11 +25,6 @@ const Delivery: deliveryType[] = [
     title: 'Free delivery',
     description: 'Delivered on Firday, May 10',
   },
-  {
-    id: 2,
-    title: 'Fast delivery ($2,00)',
-    description: 'Delivered on Wednesday, May 8',
-  },
 ];
 
 const Payment: paymentType[] = [
@@ -74,7 +69,7 @@ const ThirdStep = () => {
         <Typography variant="h6">Delivery Option</Typography>
         <Grid container spacing={3} mt={1}>
           {Delivery.map((option) => (
-            <Grid item lg={6} xs={12} key={option.id}>
+            <Grid item lg={15} xs={12} key={option.id}>
               <Paper
                 variant="outlined"
                 sx={{

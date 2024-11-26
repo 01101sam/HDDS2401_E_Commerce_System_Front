@@ -6,10 +6,9 @@ import ChildCard from '../../../shared/ChildCard';
 
 interface Props {
   total: number;
-  Discount: number;
 }
 
-const FirstStep = ({ total, Discount }: Props) => {
+const FirstStep = ({ total }: Props) => {
   return (
     <>
       <Box my={3}>
@@ -21,22 +20,6 @@ const FirstStep = ({ total, Discount }: Props) => {
             {/* Sub Total */}
             <Stack direction="row" justifyContent="space-between" mb={3}>
               <Typography variant="h6" fontWeight={400}>
-                Sub Total
-              </Typography>
-              <Typography variant="h6">${total}</Typography>
-            </Stack>
-            {/* Discount */}
-            <Stack direction="row" justifyContent="space-between" mb={3}>
-              <Typography variant="h6" fontWeight={400}>
-                Discount 5%
-              </Typography>
-              <Typography variant="h6" color="error">
-                -${Discount}
-              </Typography>
-            </Stack>
-            {/* Sub Total */}
-            <Stack direction="row" justifyContent="space-between" mb={3}>
-              <Typography variant="h6" fontWeight={400}>
                 Shipping
               </Typography>
               <Typography variant="h6">Free</Typography>
@@ -45,7 +28,7 @@ const FirstStep = ({ total, Discount }: Props) => {
             <Stack direction="row" justifyContent="space-between" mb={1}>
               <Typography variant="h6">Total</Typography>
               <Typography variant="h5" color="success">
-                ${total - Discount}
+                ${total}
               </Typography>
             </Stack>
           </Box>

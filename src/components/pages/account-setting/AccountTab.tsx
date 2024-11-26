@@ -81,14 +81,14 @@ const AccountTab = () => {
               Change Profile
             </Typography>
             <Typography color="textSecondary" mb={3}>Change your profile picture from here</Typography>
-            <Box textAlign="center" display="flex" justifyContent="center">
+            <Box textAlign="center" display="flex" justifyContent="center" height={272}>
               <Box>
                 <Avatar
                   src={user1}
                   alt={user1}
-                  sx={{ width: 120, height: 120, margin: '0 auto' }}
+                  sx={{ width: 120, height: 120, margin: '0 auto' }}                
                 />
-                <Stack direction="row" justifyContent="center" spacing={2} my={3}>
+                {/* <Stack direction="row" justifyContent="center" spacing={2} my={3}>
                   <Button variant="contained" color="primary" component="label">
                     Upload
                     <input hidden accept="image/*" multiple type="file" />
@@ -96,12 +96,21 @@ const AccountTab = () => {
                   <Button variant="outlined" color="error">
                     Reset
                   </Button>
-                </Stack>
+                </Stack> */}
                 <Typography variant="subtitle1" color="textSecondary" mb={4}>
                   Allowed JPG, GIF or PNG. Max size of 800K
                 </Typography>
               </Box>
             </Box>
+            <Stack direction="row" sx={{ justifyContent: 'end' }} spacing={2} mt={3}>
+              <Button variant="contained" color="primary" component="label">
+                Upload
+                <input hidden accept="image/*" multiple type="file" />
+              </Button>
+              <Button variant="outlined" color="error">
+                Reset
+              </Button>
+            </Stack>
           </CardContent>
         </BlankCard>
       </Grid>
@@ -148,6 +157,14 @@ const AccountTab = () => {
                 type="password"
               />
             </form>
+            <Stack direction="row" sx={{ justifyContent: 'end' }} spacing={2} mt={3}>
+              <Button variant="contained" color="primary" component="label">
+                Update
+              </Button>
+              <Button variant="outlined" color="error">
+                Reset
+              </Button>
+            </Stack>
           </CardContent>
         </BlankCard>
       </Grid>
@@ -168,7 +185,7 @@ const AccountTab = () => {
                     }}
                     htmlFor="text-name"
                   >
-                    Your Name
+                    First Name
                   </CustomFormLabel>
                   <CustomTextField
                     id="text-name"
@@ -185,7 +202,7 @@ const AccountTab = () => {
                     }}
                     htmlFor="text-store-name"
                   >
-                    Store Name
+                    Last Name
                   </CustomFormLabel>
                   <CustomTextField
                     id="text-store-name"
@@ -194,9 +211,9 @@ const AccountTab = () => {
                     fullWidth
                   />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                {/* <Grid item xs={12} sm={6}> */}
                   {/* 3 */}
-                  <CustomFormLabel
+                  {/* <CustomFormLabel
                     sx={{
                       mt: 0,
                     }}
@@ -217,10 +234,10 @@ const AccountTab = () => {
                       </MenuItem>
                     ))}
                   </CustomSelect>
-                </Grid>
-                <Grid item xs={12} sm={6}>
+                </Grid> */}
+                {/* <Grid item xs={12} sm={6}> */}
                   {/* 4 */}
-                  <CustomFormLabel
+                  {/* <CustomFormLabel
                     sx={{
                       mt: 0,
                     }}
@@ -241,8 +258,8 @@ const AccountTab = () => {
                       </MenuItem>
                     ))}
                   </CustomSelect>
-                </Grid>
-                <Grid item xs={12} sm={6}>
+                </Grid> */}
+                <Grid item xs={12}>
                   {/* 5 */}
                   <CustomFormLabel
                     sx={{
@@ -259,9 +276,9 @@ const AccountTab = () => {
                     fullWidth
                   />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                {/* <Grid item xs={12} sm={6}> */}
                   {/* 6 */}
-                  <CustomFormLabel
+                  {/* <CustomFormLabel
                     sx={{
                       mt: 0,
                     }}
@@ -275,10 +292,10 @@ const AccountTab = () => {
                     variant="outlined"
                     fullWidth
                   />
-                </Grid>
-                <Grid item xs={12}>
+                </Grid> */}
+                {/* <Grid item xs={12}> */}
                   {/* 7 */}
-                  <CustomFormLabel
+                  {/* <CustomFormLabel
                     sx={{
                       mt: 0,
                     }}
@@ -292,19 +309,27 @@ const AccountTab = () => {
                     variant="outlined"
                     fullWidth
                   />
-                </Grid>
+                </Grid> */}
               </Grid>
             </form>
+            <Stack direction="row" sx={{ justifyContent: 'end' }} spacing={2} mt={3}>
+              <Button variant="contained" color="primary" component="label">
+                Save
+              </Button>
+              <Button variant="outlined" color="error">
+                Canael
+              </Button>
+            </Stack>
           </CardContent>
         </BlankCard>
-        <Stack direction="row" spacing={2} sx={{ justifyContent: 'end' }} mt={3}>
+        {/* <Stack direction="row" spacing={2} sx={{ justifyContent: 'end' }} mt={3}>
           <Button size="large" variant="contained" color="primary">
             Save
           </Button>
           <Button size="large" variant="text" color="error">
             Cancel
           </Button>
-        </Stack>
+        </Stack> */}
       </Grid>
     </Grid>
   );

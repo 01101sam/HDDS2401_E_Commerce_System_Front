@@ -40,7 +40,6 @@ const HorizontalStepper = ({ children, steps, activeStep, handleReset, finalStep
             </Button>
             <Box sx={{ flex: '1 1 auto' }} />
             <Button variant="contained">Download Receipt</Button>
-            <Button onClick={handleReset}>Reset</Button>
           </Box>
         </React.Fragment>
       ) : (

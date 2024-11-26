@@ -125,7 +125,7 @@ interface ProfileType {
 }
 const profile: ProfileType[] = [
   {
-    href: '/user-profile',
+    href: '/pages/account-settings',
     title: 'My Profile',
     subtitle: 'Account Settings',
     icon: icon1,

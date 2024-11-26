@@ -11,12 +11,6 @@ const FinalStep = () => {
             Your order id: 3fa7-69e1-79b4-dbe0d35f5f5d
           </Typography>
           <img src={payment} alt="payment" width="300" />
-          <br />
-          <br />
-          <Typography variant="body2">
-            We will send you a notification <br />
-            within 2 days when it ships.
-          </Typography>
         </Box>
       </Box>
     </>
