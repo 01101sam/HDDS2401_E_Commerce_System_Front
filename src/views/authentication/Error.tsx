@@ -22,7 +22,7 @@ const Error = () => (
         color="primary"
         variant="contained"
         component={Link}
-        to="/dashboards/modern"
+        to="/apps/ecommerce/shop"
         disableElevation
       >
         Go Back to Home

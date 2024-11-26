@@ -24,7 +24,6 @@ import {
 
 import { Link } from 'react-router-dom';
 import AppLinks from './AppLinks';
-import QuickLinks from './QuickLinks';
 
 const MobileRightSidebar = () => {
   const [showDrawer, setShowDrawer] = useState(false);
@@ -99,9 +98,9 @@ const MobileRightSidebar = () => {
         </List>
       </Box>
 
-      <Box px={3} mt={3}>
-        <QuickLinks />
-      </Box>
+      {/*<Box px={3} mt={3}>*/}
+      {/*  <QuickLinks />*/}
+      {/*</Box>*/}
     </Box>
   );
 

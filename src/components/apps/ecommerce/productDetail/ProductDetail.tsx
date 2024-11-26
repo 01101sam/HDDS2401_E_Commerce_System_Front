@@ -12,19 +12,16 @@ import {
   Rating,
   Divider,
   Stack,
-  useTheme,
-  Fab,
   ButtonGroup,
 } from '@mui/material';
 
 import { useSelector, useDispatch } from 'src/store/Store';
-import { fetchProducts, addToCart } from '../../../../store/apps/eCommerce/ECommerceSlice';
-import { IconCheck, IconMinus, IconPlus } from '@tabler/icons-react';
+import { fetchProducts, addToCart } from 'src/store/apps/eCommerce/ECommerceSlice.tsx';
+import { IconMinus, IconPlus } from '@tabler/icons-react';
 import AlertCart from '../productCart/AlertCart';
 import { ProductType } from 'src/types/apps/eCommerce';
 
 const ProductDetail = () => {
-  const theme = useTheme();
   const dispatch = useDispatch();
   const Id: any = useParams();
 
@@ -35,34 +32,22 @@ const ProductDetail = () => {
 
   // Get Products
   const product: ProductType = useSelector((state) => state.ecommerceReducer.products[Id.id - 1]);
-
-
-
-
-  // /// select colors on click
-  // const [scolor, setScolor] = useState(product ? product.colors[0] : '');
-  // const setColor = (e: string) => {
-  //   setScolor(e);
-  // };
-
-
-
   
   //set qty
   const [count, setCount] = useState(1);
 
   // for alert when added something to cart
-  const [cartalert, setCartalert] = React.useState(false);
+  const [cartAlert, setCartAlert] = React.useState(false);
 
   const handleClick = () => {
-    setCartalert(true);
+    setCartAlert(true);
   };
 
   const handleClose = (reason: string) => {
     if (reason === 'clickaway') {
       return;
     }
-    setCartalert(false);
+    setCartAlert(false);
   };
 
   return (
@@ -84,27 +69,10 @@ const ProductDetail = () => {
           <Typography fontWeight="600" variant="h4" mt={1}>
             {product.title}
           </Typography>
-          <Typography variant="subtitle2" mt={1} color={theme.palette.text.secondary}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ex arcu, tincidunt bibendum
-            felis.
-          </Typography>
           {/* ------------------------------------------- */}
           {/* Price */}
           {/* ------------------------------------------- */}
           <Typography mt={2} variant="h4" fontWeight={600}>
-
-
-
-            {/* <Box
-              component={'small'}
-              color={theme.palette.text.secondary}
-              sx={{ textDecoration: 'line-through' }}
-            >
-              ${product.salesPrice}
-            </Box>{' '} */}
-
-
-
             ${product.price}
           </Typography>
           {/* ------------------------------------------- */}
@@ -112,45 +80,9 @@ const ProductDetail = () => {
           {/* ------------------------------------------- */}
           <Stack direction={'row'} alignItems="center" gap="10px" mt={2} pb={3}>
             <Rating name="simple-controlled" size="small" value={product.rating} readOnly />
-            <Link to="/" color="inherit">
-              (236 reviews)
-            </Link>
+            (236 reviews)
           </Stack>
           <Divider />
-
-
-
-          {/* ------------------------------------------- */}
-          {/* Colors */}
-          {/* ------------------------------------------- */}
-          {/* <Stack py={4} direction="row" alignItems="center">
-            <Typography variant="h6" mr={1}>
-              Colors:
-            </Typography>
-            <Box>
-              {product.colors.map((color) => (
-                <Fab
-                  color="primary"
-                  sx={{
-                    transition: '0.1s ease-in',
-                    scale: scolor === color ? '0.9' : '0.7',
-                    backgroundColor: `${color}`,
-                    '&:hover': {
-                      backgroundColor: `${color}`,
-                      opacity: 0.7,
-                    },
-                  }}
-                  size="small"
-                  key={color}
-                  onClick={() => setColor(color)}
-                >
-                  {scolor === color ? <IconCheck size="1.1rem" /> : ''}
-                </Fab>
-              ))}
-            </Box>
-          </Stack> */}
-
-
           
           {/* ------------------------------------------- */}
           {/* Qty */}
@@ -172,6 +104,7 @@ const ProductDetail = () => {
             </Box>
           </Stack>
           <Divider />
+
           {/* ------------------------------------------- */}
           {/* Buttons */}
           {/* ------------------------------------------- */}
@@ -201,16 +134,10 @@ const ProductDetail = () => {
               </Button>
             </Grid>
           </Grid>
-          <Typography color="textSecondary" variant="body1" mt={4}>
-            Dispatched in 2-3 weeks
-          </Typography>
-          <Link to="/" color="inherit">
-            Why the longer time for delivery?
-          </Link>
           {/* ------------------------------------------- */}
           {/* Alert When click on add to cart */}
           {/* ------------------------------------------- */}
-          <AlertCart handleClose={handleClose} openCartAlert={cartalert} />
+          <AlertCart handleClose={handleClose} openCartAlert={cartAlert} />
         </>
       ) : (
         'No product'

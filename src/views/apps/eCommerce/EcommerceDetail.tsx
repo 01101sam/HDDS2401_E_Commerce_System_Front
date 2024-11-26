@@ -4,7 +4,6 @@ import Breadcrumb from 'src/layouts/full/shared/breadcrumb/Breadcrumb';
 import PageContainer from 'src/components/container/PageContainer';
 import ProductDetail from 'src/components/apps/ecommerce/productDetail/ProductDetail';
 import ProductDesc from 'src/components/apps/ecommerce/productDetail/ProductDesc';
-import ProductRelated from 'src/components/apps/ecommerce/productDetail/ProductRelated';
 import ChildCard from 'src/components/shared/ChildCard';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -47,9 +46,6 @@ const EcommerceDetail = () => {
         </Grid>
         <Grid item xs={12} sm={12} lg={12}>
           <ProductDesc />
-        </Grid>
-        <Grid item xs={12} sm={12} lg={12}>
-          <ProductRelated />
         </Grid>
       </Grid>
     </PageContainer>

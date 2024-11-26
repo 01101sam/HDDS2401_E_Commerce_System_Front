@@ -1,7 +1,7 @@
 import axios from '../../../utils/axios';
-import { filter, map } from 'lodash';
-import { createSlice } from '@reduxjs/toolkit';
-import { AppDispatch } from 'src/store/Store';
+import {filter, map} from 'lodash';
+import {createSlice} from '@reduxjs/toolkit';
+import {AppDispatch} from 'src/store/Store';
 
 const API_URL = '/api/data/eCommerce/ProductsData';
 
@@ -98,7 +98,7 @@ export const EcommerceSlice = createSlice({
     // qty increment
     increment(state: StateType, action) {
       const productId = action.payload;
-      const updateCart = map(state.cart, (product) => {
+      state.cart = map(state.cart, (product) => {
         if (product.id === productId) {
           return {
             ...product,
@@ -108,14 +108,12 @@ export const EcommerceSlice = createSlice({
 
         return product;
       });
-
-      state.cart = updateCart;
     },
 
     // qty decrement
     decrement(state: StateType, action) {
       const productId = action.payload;
-      const updateCart = map(state.cart, (product) => {
+      state.cart = map(state.cart, (product) => {
         if (product.id === productId) {
           return {
             ...product,
@@ -125,14 +123,11 @@ export const EcommerceSlice = createSlice({
 
         return product;
       });
-
-      state.cart = updateCart;
     },
 
     // delete Cart
     deleteCart(state: StateType, action) {
-      const updateCart = filter(state.cart, (item) => item.id !== action.payload);
-      state.cart = updateCart;
+      state.cart = filter(state.cart, (item) => item.id !== action.payload);
     },
   },
 });

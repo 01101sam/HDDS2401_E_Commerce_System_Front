@@ -6,7 +6,6 @@ import Breadcrumb from 'src/layouts/full/shared/breadcrumb/Breadcrumb';
 import { Grid } from '@mui/material';
 
 import Questions from '../../../components/pages/faq/Questions';
-import StillQuestions from '../../../components/pages/faq/StillQuestions';
 
 const BCrumb = [
   {
@@ -27,7 +26,6 @@ const Faq = () => {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Questions />
-          <StillQuestions />
         </Grid>
       </Grid>
     </PageContainer>
