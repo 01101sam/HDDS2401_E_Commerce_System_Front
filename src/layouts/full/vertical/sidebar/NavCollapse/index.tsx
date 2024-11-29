@@ -88,8 +88,8 @@ const NavCollapse = ({
     },
     color:
       open && level < 2
-        ? 'white'
-        : `inherit` && level > 1 && open
+        // ? 'white'
+        // : `inherit` && level > 1 && open
         ? theme.palette.primary.main
         : theme.palette.text.secondary,
     borderRadius: `${customizer.borderRadius}px`,

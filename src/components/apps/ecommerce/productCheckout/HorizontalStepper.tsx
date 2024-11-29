@@ -12,11 +12,10 @@ interface Props {
   children: JSX.Element | JSX.Element[];
   steps: any[];
   activeStep: number;
-  handleReset: (event: React.SyntheticEvent | Event) => void;
   finalStep: JSX.Element | JSX.Element[];
 }
 
-const HorizontalStepper = ({ children, steps, activeStep, handleReset, finalStep }: Props) => {
+const HorizontalStepper = ({ children, steps, activeStep, finalStep }: Props) => {
   return (
     <Box sx={{ width: '100%' }}>
       <Stepper activeStep={activeStep} alternativeLabel>

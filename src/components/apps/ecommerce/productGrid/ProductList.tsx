@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import React, { useEffect } from 'react';
-import { filter, orderBy } from 'lodash';
+import { orderBy } from 'lodash';
 import {
   Box,
   Grid,
@@ -66,16 +66,6 @@ const ProductList = ({ onClick }: Props) => {
     if (filters.category !== 'All') {
       //products = filter(products, (_product) => includes(_product.category, filters.category));
       products = products.filter((_product) => _product.category.includes(filters.category));
-    }
-
-    //FILTER PRODUCTS BY GENDER
-    if (filters.gender !== 'All') {
-      products = filter(products, (_product) => _product.gender === filters.gender);
-    }
-
-    //FILTER PRODUCTS BY GENDER
-    if (filters.color !== 'All') {
-      products = products.filter((_product) => _product.colors.includes(filters.color));
     }
 
     //FILTER PRODUCTS BY Search
@@ -202,19 +192,6 @@ const ProductList = ({ onClick }: Props) => {
                       >
                         <Stack direction="row" alignItems="center">
                           <Typography variant="h6">${product.price}</Typography>
-
-
-
-                          {/* <Typography
-                            color="textSecondary"
-                            ml={1}
-                            sx={{ textDecoration: 'line-through' }}
-                          >
-                            ${product.salesPrice}
-                          </Typography> */}
-
-
-                          
                         </Stack>
                         <Rating name="read-only" size="small" value={product.rating} readOnly />
                       </Stack>

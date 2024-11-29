@@ -13,15 +13,11 @@ import {
   Radio,
   Typography,
   Box,
-  Avatar,
   Button,
-  Stack
 } from '@mui/material';
 import {
   filterProducts,
   sortByProducts,
-  sortByGender,
-  sortByColor,
   sortByPrice,
   filterReset,
 } from 'src/store/apps/eCommerce/ECommerceSlice';
@@ -34,37 +30,15 @@ import {
   IconSortAscending2,
   IconSortDescending2,
   IconAd2,
-  IconCheck
 } from '@tabler/icons-react';
 import { ProductFiterType } from 'src/types/apps/eCommerce';
 
 const ProductFilter = () => {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.ecommerceReducer.products);
   const active = useSelector((state) => state.ecommerceReducer.filters);
   const checkactive = useSelector((state) => state.ecommerceReducer.sortBy);
   const customizer = useSelector((state) => state.customizer);
   const br = `${customizer.borderRadius}px`;
-
-
-
-
-  // const getUniqueData = (data: string[], attr: any) => {
-  //   let newVal = data.map((curElem) => {
-  //     return curElem[attr];
-  //   });
-  //   if (attr === 'colors') {
-  //     newVal = newVal.flat();
-  //   }
-
-  //   return (newVal = ['All', ...Array.from(new Set(newVal))]);
-  // };
-
-  // const filterbyGender = getUniqueData(products, 'gender');
-  // const filterbyColors = getUniqueData(products, 'colors');
-
-
-
 
   const filterCategory: ProductFiterType[] = [
     {
@@ -140,17 +114,6 @@ const ProductFilter = () => {
     },
   ];
 
-
-
-
-  // const handlerGenderFilter = (value: React.ChangeEvent<HTMLInputElement>) => {
-  //   if (value.target.checked) {
-  //     dispatch(sortByGender({ gender: value.target.value }));
-  //   }
-  // };
-
-
-
   const handlerPriceFilter = (value: React.ChangeEvent<HTMLInputElement>) => {
     if (value.target.checked) {
       dispatch(sortByPrice({ price: value.target.value }));
@@ -173,7 +136,6 @@ const ProductFilter = () => {
           } else if (filter.devider) {
             return <Divider key={filter.id} />;
           }
-
           return (
             <ListItemButton
               sx={{ mb: 1, mx: 3, borderRadius: br }}
@@ -210,40 +172,9 @@ const ProductFilter = () => {
           );
         })}
         <Divider></Divider>
-
-
-
-        {/* ------------------------------------------- */}
-        {/* Filter By Gender */}
-        {/* ------------------------------------------- */}
-        {/* <Box p={3}>
-          <Typography variant="subtitle2" fontWeight={600}>
-            By Gender
-          </Typography>
-          <br />
-          <FormGroup>
-            {filterbyGender.map((gen) => (
-              <FormControlLabel
-                key={gen}
-                control={
-                  <Radio
-                    value={gen}
-                    checked={active.gender === gen}
-                    onChange={handlerGenderFilter}
-                  />
-                }
-                label={gen}
-              />
-            ))}
-          </FormGroup>
-        </Box>
-        <Divider></Divider> */}
         {/* ------------------------------------------- */}
         {/* Filter By Pricing */}
-        {/* ------------------------------------------- */}
-
-
-        
+        {/* ------------------------------------------- */}        
         <Typography variant="h6" px={3} mt={3} pb={2}>
           By Pricing
         </Typography>
@@ -265,42 +196,6 @@ const ProductFilter = () => {
           </FormGroup>
         </Box>
         <Divider></Divider>
-        {/* <Typography variant="h6" px={3} mt={3} pb={2}>
-          By Colors
-        </Typography> */}
-        {/* ------------------------------------------- */}
-        {/* Filter By colors */}
-        {/* ------------------------------------------- */}
-        {/* <Box p={3} pt={0}>
-          <Stack direction={'row'} flexWrap="wrap" gap={1}>
-            {filterbyColors.map((curColor) => {
-              if (curColor !== 'All') {
-                return (
-                  <Avatar
-                    sx={{
-                      backgroundColor: curColor,
-                      width: 24,
-                      height: 24,
-                      cursor: 'pointer',
-                    }}
-                    aria-label={curColor}
-                    key={curColor}
-                    onClick={
-                      active.color === curColor
-                        ? () => dispatch(sortByColor({ color: 'All' }))
-                        : () => dispatch(sortByColor({ color: curColor }))
-                    }
-                  >
-                    {active.color === curColor ? <IconCheck size="13" /> : ''}
-                  </Avatar>
-                );
-              } else {
-                return <Box key={curColor} sx={{ display: 'none' }}></Box>;
-              }
-            })}
-          </Stack>
-        </Box>
-        <Divider></Divider> */}
         {/* ------------------------------------------- */}
         {/* Reset */}
         {/* ------------------------------------------- */}

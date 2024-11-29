@@ -25,9 +25,6 @@ const ProductChecout = () => {
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
-  const handleReset = () => {
-    setActiveStep(0);
-  };
 
   const total = sum(checkout.map((product: ProductType) => product.price * product.qty));
 
@@ -35,7 +32,6 @@ const ProductChecout = () => {
     <Box>
       <HorizontalStepper
         steps={steps}
-        handleReset={handleReset}
         activeStep={activeStep}
         finalStep={<FinalStep />}
       >

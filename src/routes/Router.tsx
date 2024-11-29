@@ -8,9 +8,6 @@ import Loadable from '../layouts/full/shared/loadable/Loadable';
 const FullLayout = Loadable(lazy(() => import('../layouts/full/FullLayout')));
 const BlankLayout = Loadable(lazy(() => import('../layouts/blank/BlankLayout')));
 
-/* ****Pages***** */
-const EcommerceDash = Loadable(lazy(() => import('../views/dashboard/Ecommerce')));
-
 /* ****Apps***** */
 const Ecommerce = Loadable(lazy(() => import('../views/apps/eCommerce/Ecommerce')));
 const EcommerceDetail = Loadable(lazy(() => import('../views/apps/eCommerce/EcommerceDetail')));
@@ -120,19 +117,7 @@ const Router = [
 
             {path: '/account/settings', element: <AccountSetting/>},
 
-            // Admin Dashboard
-            {path: '/admin/dashboard', exact: true, element: <EcommerceDash/>},
-            {path: '/admin/users', element: <EcommerceDash/>},
-
-            // Manage Order
-            {path: '/admin/orders', element: <EcommerceDash/>},
-            {path: '/admin/shipping', element: <EcommerceDash/>},
-
             {path: '/apps/invoice/edit/:id', element: <InvoiceEdit/>},
-
-            // Mange Website
-            {path: '/admin/categories', element: <EcommerceDash/>},
-            {path: '/admin/products', element: <EcommerceDash/>},
 
             {path: '/apps/ecommerce/add-product', element: <EcommerceAddProduct/>},
             {path: '/apps/ecommerce/edit-product', element: <EcommerceEditProduct/>},

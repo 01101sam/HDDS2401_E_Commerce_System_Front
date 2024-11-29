@@ -263,14 +263,6 @@ function InvoiceList() {
               Delete All
             </Button>
           )}
-          <Button
-            variant="contained"
-            color="primary"
-            component={Link}
-            to="/apps/invoice/create"
-          >
-            New Invoice
-          </Button>
         </Box>
       </Stack>
 
@@ -284,11 +276,6 @@ function InvoiceList() {
                   checked={selectAll}
                   onChange={toggleSelectAll}
                 />
-              </TableCell>
-              <TableCell>
-                <Typography variant="h6" fontSize="14px">
-                  Id
-                </Typography>
               </TableCell>
               <TableCell>
                 <Typography variant="h6" fontSize="14px">
@@ -332,11 +319,6 @@ function InvoiceList() {
                       checked={selectedProducts.includes(invoice.id)}
                       onChange={() => toggleSelectProduct(invoice.id)}
                     />
-                  </TableCell>
-                  <TableCell>
-                    <Typography variant="h6" fontSize="14px">
-                      {invoice.id}
-                    </Typography>
                   </TableCell>
                   <TableCell>
                     <Typography variant="h6" fontSize="14px">
