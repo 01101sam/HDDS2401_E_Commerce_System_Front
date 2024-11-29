@@ -7,7 +7,6 @@ import EmailReducer from './apps/email/EmailSlice';
 import TicketReducer from './apps/tickets/TicketSlice';
 import ContactsReducer from './apps/contacts/ContactSlice';
 import UserProfileReducer from './apps/userProfile/UserProfileSlice';
-import BlogReducer from './apps/blog/BlogSlice';
 import { combineReducers } from 'redux';
 import {
   useDispatch as useAppDispatch,
@@ -25,7 +24,6 @@ export const store = configureStore({
     contactsReducer: ContactsReducer,
     ticketReducer: TicketReducer,
     userpostsReducer: UserProfileReducer,
-    blogReducer: BlogReducer,
   },
 });
 
@@ -38,7 +36,6 @@ const rootReducer = combineReducers({
   contactsReducer: ContactsReducer,
   ticketReducer: TicketReducer,
   userpostsReducer: UserProfileReducer,
-  blogReducer: BlogReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

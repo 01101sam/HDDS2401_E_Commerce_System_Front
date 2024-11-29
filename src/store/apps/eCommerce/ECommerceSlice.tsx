@@ -3,6 +3,7 @@ import {filter, map} from 'lodash';
 import {createSlice} from '@reduxjs/toolkit';
 import {AppDispatch} from 'src/store/Store';
 
+// FIXME: Change API URI
 const API_URL = '/api/data/eCommerce/ProductsData';
 
 interface StateType {
