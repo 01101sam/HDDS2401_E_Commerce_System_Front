@@ -28,7 +28,7 @@ const Logo: FC = () => {
   if (customizer.activeDir === 'ltr') {
     return (
       <LinkStyled
-        to="/apps/ecommerce/shop"
+        to="/shop"
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -45,7 +45,7 @@ const Logo: FC = () => {
 
   return (
     <LinkStyled
-      to="/apps/ecommerce/shop"
+      to="/shop"
       style={{
         display: 'flex',
         alignItems: 'center',

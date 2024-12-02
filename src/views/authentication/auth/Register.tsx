@@ -4,11 +4,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Box, Typography, Stack } from '@mui/material';
 
-import PageContainer from 'src/components/container/PageContainer';
+import PageContainer from 'src/components/container/PageContainer.tsx';
 import img1 from 'src/assets/images/backgrounds/login-bg.svg';
-import Logo from 'src/layouts/full/shared/logo/Logo';
+import Logo from 'src/layouts/full/shared/logo/Logo.tsx';
 
-import AuthRegister from '../authForms/AuthRegister';
+import AuthRegister from '../authForms/AuthRegister.tsx';
 
 const Register = () => (
   <PageContainer title="Register" description="this is Register page">
@@ -71,12 +71,7 @@ const Register = () => (
       >
         <Box p={4}>
           <AuthRegister
-            title="Welcome to Modernize"
-            subtext={
-              <Typography variant="subtitle1" color="textSecondary" mb={1}>
-                Your Admin Dashboard
-              </Typography>
-            }
+            title="Register to SupMarket E-Shop"
             subtitle={
               <Stack direction="row" spacing={1} mt={3}>
                 <Typography color="textSecondary" variant="h6" fontWeight="400">

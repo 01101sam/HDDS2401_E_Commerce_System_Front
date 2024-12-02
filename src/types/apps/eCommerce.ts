@@ -1,36 +1,34 @@
-import { GeneralIcon } from './icon';
+import {GeneralIcon} from './icon';
+
+interface RatingType {
+    average: number;
+    one_star_count: number;
+    two_star_count: number;
+    three_star_count: number;
+    four_star_count: number;
+    five_star_count: number;
+}
 
 export interface ProductType {
-  title: string;
-  price: number;
-  discount: number;
-  related: boolean;
-  salesPrice: number;
-  category: string[];
-  gender: string;
-  rating: number;
-  stock: boolean;
-  qty: number;
-  colors: string[];
-  photo: string;
-  id: number | string;
-  created: Date;
-  description: string;
+    id: string;
+    sku: string;
+    name: string;
+    description_html: string;
+    thumbnail_url: string;
+    media_url: string;
+    category_names: string[];
+    price: number;
+    tags: string[];
+    rating: RatingType;
+    stock: number;
+    qty: number;
 }
 
-export interface ProductFiterType {
-  id: number;
-  filterbyTitle?: string;
-  name?: string;
-  sort?: string;
-  icon?: GeneralIcon | any;
-  devider?: boolean;
-}
-
-export interface ProductCardProps {
-  id?: string | number;
-  color?: string;
-  like: string;
-  star: number;
-  value?: string;
+export interface ProductFilterType {
+    id: number;
+    filterbyTitle?: string;
+    name?: string;
+    sort?: string;
+    icon?: GeneralIcon | any;
+    devider?: boolean;
 }

@@ -27,8 +27,8 @@ const AddToCart = () => {
   const dispatch = useDispatch();
 
   // Get Products
-  const Cartproduct: ProductType[] = useSelector((state) => state.ecommerceReducer.cart);
-  console.log(Cartproduct);
+  const CartProduct: ProductType[] = useSelector((state) => state.ecommerceReducer.cart);
+  console.log(CartProduct);
   const Increase = (productId: number | string) => {
     dispatch(increment(productId));
   };
@@ -39,7 +39,7 @@ const AddToCart = () => {
 
   return (
     <Box>
-      {Cartproduct.length > 0 ? (
+      {CartProduct.length > 0 ? (
         <>
           <Box>
             <TableContainer sx={{ minWidth: 350 }}>
@@ -54,7 +54,7 @@ const AddToCart = () => {
                 </TableHead>
 
                 <TableBody>
-                  {Cartproduct.map((product) => (
+                  {CartProduct.map((product) => (
                     <TableRow key={product.id}>
                       {/* ------------------------------------------- */}
                       {/* Product Image & Title */}
@@ -62,8 +62,8 @@ const AddToCart = () => {
                       <TableCell>
                         <Stack direction="row" alignItems="center" gap={2}>
                           <Avatar
-                            src={product.photo}
-                            alt={product.photo}
+                            src={product.thumbnail_url}
+                            alt={product.thumbnail_url}
                             sx={{
                               borderRadius: '10px',
                               height: '80px',
@@ -71,9 +71,9 @@ const AddToCart = () => {
                             }}
                           />
                           <Box>
-                            <Typography variant="h6">{product.title}</Typography>{' '}
+                            <Typography variant="h6">{product.name}</Typography>{' '}
                             <Typography color="textSecondary" variant="body1">
-                              {product.category}
+                              {product.category_names[0]}
                             </Typography>
                             <IconButton
                               size="small"
@@ -113,7 +113,7 @@ const AddToCart = () => {
           <Typography variant="h5" mb={2}>
             Cart is Empty
           </Typography>
-          <Button component={Link} to="/apps/ecommerce/shop" variant="contained">
+          <Button component={Link} to="/shop" variant="contained">
             Go back to Shopping
           </Button>
         </Box>

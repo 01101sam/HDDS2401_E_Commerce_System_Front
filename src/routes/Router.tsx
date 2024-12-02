@@ -3,6 +3,12 @@
 import React, {lazy} from 'react';
 import {Navigate} from 'react-router-dom';
 import Loadable from '../layouts/full/shared/loadable/Loadable';
+import AuthGuard from "src/guards/authGuard/AuthGuard.tsx";
+import GuestGuard from "src/guards/authGuard/GuestGaurd.tsx";
+import UserListing from "src/views/apps/admin/users/List.tsx";
+import CategoriesListing from "src/views/apps/admin/categories/List.tsx";
+// import ListProduct from "src/views/apps/admin/products/List.tsx";
+import AdminOrderListing from "src/views/apps/admin/orders/List.tsx";
 
 /* ***Layouts**** */
 const FullLayout = Loadable(lazy(() => import('../layouts/full/FullLayout')));
@@ -10,21 +16,21 @@ const BlankLayout = Loadable(lazy(() => import('../layouts/blank/BlankLayout')))
 
 /* ****Apps***** */
 const Ecommerce = Loadable(lazy(() => import('../views/apps/eCommerce/Ecommerce')));
-const EcommerceDetail = Loadable(lazy(() => import('../views/apps/eCommerce/EcommerceDetail')));
-const EcommerceAddProduct = Loadable(
-    lazy(() => import('../views/apps/eCommerce/EcommerceAddProduct')),
-);
-const EcommerceEditProduct = Loadable(
-    lazy(() => import('../views/apps/eCommerce/EcommerceEditProduct')),
-);
-const EcomProductList = Loadable(lazy(() => import('../views/apps/eCommerce/EcomProductList')));
+// const EcommerceDetail = Loadable(lazy(() => import('../views/apps/eCommerce/EcommerceDetail')));
+// const EcommerceAddProduct = Loadable(
+//     lazy(() => import('../views/apps/eCommerce/EcommerceAddProduct')),
+// );
+// const EcommerceEditProduct = Loadable(
+//     lazy(() => import('../views/apps/eCommerce/EcommerceEditProduct')),
+// );
+// const EcomProductList = Loadable(lazy(() => import('../views/apps/eCommerce/EcomProductList')));
 const EcomProductCheckout = Loadable(
     lazy(() => import('../views/apps/eCommerce/EcommerceCheckout')),
 );
 
-const InvoiceList = Loadable(lazy(() => import('../views/apps/invoice/List')));
-const InvoiceDetail = Loadable(lazy(() => import('../views/apps/invoice/Detail')));
-const InvoiceEdit = Loadable(lazy(() => import('../views/apps/invoice/Edit')));
+const InvoiceList = Loadable(lazy(() => import('src/views/apps/order/List')));
+// const InvoiceDetail = Loadable(lazy(() => import('src/views/apps/order/Detail')));
+// const InvoiceEdit = Loadable(lazy(() => import('src/views/apps/order/Edit')));
 
 // ui components
 const MuiAlert = Loadable(lazy(() => import('../views/ui-components/MuiAlert')));
@@ -101,27 +107,24 @@ const Error = Loadable(lazy(() => import('../views/authentication/Error')));
 const Router = [
     {
         path: '/',
-        element: <FullLayout/>,
+        element: (
+            <AuthGuard>
+                <FullLayout/>
+            </AuthGuard>
+        ),
         children: [
             {path: '/', element: <Ecommerce/>},
 
             // User Dashboard
 
-            {path: '/apps/ecommerce/shop', element: <Ecommerce/>},
-            {path: '/apps/ecommerce/eco-product-list', element: <EcomProductList/>},
-            {path: '/apps/ecommerce/eco-checkout', element: <EcomProductCheckout/>},
-            {path: '/apps/ecommerce/detail/:id', element: <EcommerceDetail/>},
+            {path: '/shop', element: <Ecommerce/>},
+            {path: '/checkout', element: <EcomProductCheckout/>},
+            // {path: '/product/:id', element: <EcommerceDetail/>},
 
-            {path: '/apps/invoice/list', element: <InvoiceList/>},
-            {path: '/apps/invoice/detail/:id', element: <InvoiceDetail/>},
+            {path: '/orders', element: <InvoiceList/>},
+            // {path: '/apps/invoice/detail/:id', element: <InvoiceDetail/>},
 
             {path: '/account/settings', element: <AccountSetting/>},
-
-            {path: '/apps/invoice/edit/:id', element: <InvoiceEdit/>},
-
-            {path: '/apps/ecommerce/add-product', element: <EcommerceAddProduct/>},
-            {path: '/apps/ecommerce/edit-product', element: <EcommerceEditProduct/>},
-
 
             // Utils
             {path: '/ui-components/alert', element: <MuiAlert/>},
@@ -178,14 +181,45 @@ const Router = [
         ],
     },
     {
-        path: '/',
-        element: <BlankLayout/>,
+        path: '/admin',
+        element: (
+            <AuthGuard>
+                <FullLayout/>
+            </AuthGuard>
+        ),
+        children: [
+            {path: '/admin/users/list', element: <UserListing/>},
+
+            {path: '/admin/categories/list', element: <CategoriesListing/>},
+
+            // {path: '/admin/order/edit/:id', element: <InvoiceEdit/>},
+            {path: '/admin/order/list', element: <AdminOrderListing/>},
+            // {path: '/admin/product/list', element: <EcomProductList/>},
+            // {path: '/admin/product/list', element: <ListProduct/>},
+            // {path: '/admin/product/add', element: <EcommerceAddProduct/>},
+            // {path: '/admin/product/edit', element: <EcommerceEditProduct/>},
+
+            {path: '*', element: <Navigate to="/auth/404"/>},
+        ]
+    },
+    {
+        path: '/auth',
+        element: (
+            <GuestGuard>
+                <BlankLayout/>
+            </GuestGuard>
+        ),
         children: [
             {path: '/auth/login', element: <Login/>},
             {path: '/auth/register', element: <Register/>},
             {path: '/auth/forgot-password', element: <ForgotPassword/>},
-
-            {path: '/auth/404', element: <Error/>},
+        ],
+    },
+    {
+        path: '/auth',
+        element: <BlankLayout/>,
+        children: [
+            {path: '404', element: <Error/>},
             {path: '*', element: <Navigate to="/auth/404"/>},
         ],
     },

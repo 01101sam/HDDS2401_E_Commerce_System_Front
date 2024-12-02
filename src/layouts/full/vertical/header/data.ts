@@ -33,7 +33,7 @@ interface appsLinkType {
 
 const appsLink: appsLinkType[] = [
     {
-        href: '/apps/ecommerce/shop',
+        href: '/shop',
         title: 'eCommerce App',
         subtext: 'New stock available',
         avatar: ddIcon2

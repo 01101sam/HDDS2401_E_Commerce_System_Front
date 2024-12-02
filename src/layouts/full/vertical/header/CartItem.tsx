@@ -31,8 +31,8 @@ const CartItems = () => {
             <Box key={product.id + index * index}>
               <Stack direction="row" spacing={2} py={3}>
                 <Avatar
-                  src={product.photo}
-                  alt={product.photo}
+                  src={product.thumbnail_url}
+                  alt={product.thumbnail_url}
                   sx={{
                     borderRadius: '10px',
                     height: '75px',
@@ -41,11 +41,11 @@ const CartItems = () => {
                 />
                 <Box>
                   <Typography variant="subtitle2" color="textPrimary" fontWeight={600}>
-                    {product.title}
+                    {product.name}
                   </Typography>{' '}
                   <Typography color="textSecondary" fontSize="12px">
                     {' '}
-                    {product.category}
+                    {product.category_names[0]}
                   </Typography>
                   <Stack direction="row" alignItems="center" spacing={2} mt="5px">
                     <Typography variant="subtitle2" fontWeight="500">
@@ -89,7 +89,7 @@ const CartItems = () => {
           <Typography variant="h5" mb={2}>
             Cart is Empty
           </Typography>
-          <Button component={Link} to="/apps/ecommerce/shop" variant="contained">
+          <Button component={Link} to="/shop" variant="contained">
             Go back to Shopping
           </Button>
         </Box>

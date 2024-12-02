@@ -24,7 +24,7 @@ const ProductCarousel = () => {
 
     // Get Products
     const product: ProductType = useSelector((state) => state.ecommerceReducer.products[Id.id - 1]);
-    const getProductImage = product ? product.photo : '';
+    const getProductImage = product ? product.thumbnail_url : '';
 
     return (
         <Box>

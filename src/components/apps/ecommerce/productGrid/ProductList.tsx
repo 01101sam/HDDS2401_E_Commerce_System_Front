@@ -1,7 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import React, { useEffect } from 'react';
-import { orderBy } from 'lodash';
 import {
   Box,
   Grid,
@@ -16,13 +15,12 @@ import {
   Theme,
   Skeleton,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'src/store/Store';
 import {
   fetchProducts,
   addToCart,
   filterReset,
-} from '../../../../store/apps/eCommerce/ECommerceSlice';
+} from 'src/store/apps/eCommerce/ECommerceSlice.tsx';
 import ProductSearch from './ProductSearch';
 import { IconBasket, IconMenu2 } from '@tabler/icons-react';
 import AlertCart from '../productCart/AlertCart';
@@ -44,42 +42,19 @@ const ProductList = ({ onClick }: Props) => {
 
   const getVisibleProduct = (
     products: ProductType[],
-    sortBy: string,
     filters: any,
     search: string,
   ) => {
-    // SORT BY
-    if (sortBy === 'newest') {
-      products = orderBy(products, ['created'], ['desc']);
-    }
-    if (sortBy === 'priceDesc') {
-      products = orderBy(products, ['price'], ['desc']);
-    }
-    if (sortBy === 'priceAsc') {
-      products = orderBy(products, ['price'], ['asc']);
-    }
-    if (sortBy === 'discount') {
-      products = orderBy(products, ['discount'], ['desc']);
-    }
-
     // FILTER PRODUCTS
     if (filters.category !== 'All') {
       //products = filter(products, (_product) => includes(_product.category, filters.category));
-      products = products.filter((_product) => _product.category.includes(filters.category));
+      products = products.filter((_product) => _product.category_names.includes(filters.category));
     }
 
     //FILTER PRODUCTS BY Search
     if (search !== '') {
       products = products.filter((_product) =>
-        _product.title.toLocaleLowerCase().includes(search.toLocaleLowerCase()),
-      );
-    }
-
-    //FILTER PRODUCTS BY Price
-    if (filters.price !== 'All') {
-      const minMax = filters.price ? filters.price.split('-') : '';
-      products = products.filter((_product) =>
-        filters.price ? _product.price >= minMax[0] && _product.price <= minMax[1] : true,
+        _product.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()),
       );
     }
 
@@ -89,7 +64,6 @@ const ProductList = ({ onClick }: Props) => {
   const getProducts = useSelector((state) =>
     getVisibleProduct(
       state.ecommerceReducer.products,
-      state.ecommerceReducer.sortBy,
       state.ecommerceReducer.filters,
       state.ecommerceReducer.productSearch,
     ),
@@ -169,8 +143,8 @@ const ProductList = ({ onClick }: Props) => {
                   </>
                 ) : (
                   <BlankCard className="hoverCard">
-                    <Typography component={Link} to={`/apps/ecommerce/detail/${product.id}`}>
-                      <img src={product.photo} alt="img" width="100%" />
+                    <Typography>
+                      <img src={product.thumbnail_url} alt="img" width="100%" />
                     </Typography>
                     <Tooltip title="Add To Cart">
                       <Fab
@@ -183,7 +157,7 @@ const ProductList = ({ onClick }: Props) => {
                       </Fab>
                     </Tooltip>
                     <CardContent sx={{ p: 3, pt: 2 }}>
-                      <Typography variant="h6">{product.title}</Typography>
+                      <Typography variant="h6">{product.name}</Typography>
                       <Stack
                         direction="row"
                         alignItems="center"
@@ -193,7 +167,7 @@ const ProductList = ({ onClick }: Props) => {
                         <Stack direction="row" alignItems="center">
                           <Typography variant="h6">${product.price}</Typography>
                         </Stack>
-                        <Rating name="read-only" size="small" value={product.rating} readOnly />
+                        <Rating name="read-only" size="small" value={product.rating.average} readOnly />
                       </Stack>
                     </CardContent>
                   </BlankCard>

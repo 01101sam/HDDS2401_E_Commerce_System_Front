@@ -4,7 +4,7 @@ import React from 'react';
 import { Box } from '@mui/material';
 import Breadcrumb from 'src/layouts/full/shared/breadcrumb/Breadcrumb';
 import PageContainer from 'src/components/container/PageContainer';
-import ProductChecout from 'src/components/apps/ecommerce/productCheckout/ProductCheckout';
+import ProductCheckout from 'src/components/apps/ecommerce/productCheckout/ProductCheckout';
 import ChildCard from 'src/components/shared/ChildCard';
 
 const BCrumb = [
@@ -27,7 +27,7 @@ const EcommerceCheckout = () => {
         {/* Right part */}
         {/* ------------------------------------------- */}
         <Box p={3} flexGrow={1}>
-          <ProductChecout />
+          <ProductCheckout />
         </Box>
       </ChildCard>
     </PageContainer>

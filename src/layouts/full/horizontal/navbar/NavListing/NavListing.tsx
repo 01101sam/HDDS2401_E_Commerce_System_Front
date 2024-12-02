@@ -1,13 +1,14 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import React from 'react';
-import Menudata from '../Menudata';
+import Menudata from '../../../shared/MenuItems.ts';
 import { useLocation } from 'react-router';
 import { Box, List, Theme, useMediaQuery } from '@mui/material';
 import { useSelector } from 'src/store/Store';
 import NavItem from '../NavItem/NavItem';
 import NavCollapse from '../NavCollapse/NavCollapse';
 import { AppState } from 'src/store/Store';
+import useAuth from "src/guards/authGuard/UseAuth.tsx";
 
 const NavListing = () => {
   const { pathname } = useLocation();
@@ -16,11 +17,14 @@ const NavListing = () => {
   const customizer = useSelector((state: AppState) => state.customizer);
   const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
   const hideMenu = lgUp ? customizer.isCollapse && !customizer.isSidebarHover : '';
+  const { user } = useAuth();
 
   return (
     <Box>
       <List sx={{ p: 0, display: 'flex', gap: '3px', zIndex: '100' }}>
         {Menudata.map((item) => {
+          if (!user?.roles?.includes('admin') && item.id === 'admin') return ;
+
           if (item.children) {
             return (
               <NavCollapse

@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 import {
   Box,
   Menu,
@@ -17,14 +17,33 @@ import * as dropdownData from './data';
 import { IconMail } from '@tabler/icons-react';
 
 import ProfileImg from 'src/assets/images/profile/user-1.jpg';
+import useAuth from "src/guards/authGuard/UseAuth.tsx";
+import useMounted from "src/guards/authGuard/UseMounted.tsx";
 
 const Profile = () => {
   const [anchorEl2, setAnchorEl2] = useState(null);
+  const { logOut, user } = useAuth();
+  const navigate = useNavigate();
+  const mounted = useMounted();
+
   const handleClick2 = (event: any) => {
     setAnchorEl2(event.currentTarget);
   };
+
   const handleClose2 = () => {
     setAnchorEl2(null);
+  };
+
+  const handleLogout = async () => {
+    try {
+      await logOut();
+      navigate('/');
+      if (mounted.current) {
+        handleClose2();
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -74,10 +93,10 @@ const Profile = () => {
           <Avatar src={ProfileImg} alt={ProfileImg} sx={{ width: 95, height: 95 }} />
           <Box>
             <Typography variant="subtitle2" color="textPrimary" fontWeight={600}>
-              Mathew Anderson
+              {user?.firstName + ' ' + user?.lastName}
             </Typography>
             <Typography variant="subtitle2" color="textSecondary">
-            Designer
+              {(user?.roles || []).sort()[0]}
             </Typography>
             <Typography
               variant="subtitle2"
@@ -87,7 +106,7 @@ const Profile = () => {
               gap={1}
             >
               <IconMail width={15} height={15} />
-              info@modernize.com
+              {user?.email || ''}
             </Typography>
           </Box>
         </Stack>
@@ -145,7 +164,7 @@ const Profile = () => {
           </Box>
         ))}
         <Box mt={2}>          
-          <Button to="/auth/login" variant="outlined" color="primary" component={Link} fullWidth>
+          <Button to="/auth/login" variant="outlined" color="primary" component={Link} fullWidth onClick={handleLogout}>
             Logout
           </Button>
         </Box>

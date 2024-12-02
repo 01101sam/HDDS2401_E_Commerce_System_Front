@@ -1,212 +1,104 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import React from 'react';
-import { useDispatch, useSelector } from 'src/store/Store';
-import {
-  ListItemText,
-  ListItemButton,
-  List,
-  Divider,
-  FormGroup,
-  ListItemIcon,
-  FormControlLabel,
-  Radio,
-  Typography,
-  Box,
-  Button,
-} from '@mui/material';
-import {
-  filterProducts,
-  sortByProducts,
-  sortByPrice,
-  filterReset,
-} from 'src/store/apps/eCommerce/ECommerceSlice';
-import {
-  IconHanger,
-  IconCircles,
-  IconNotebook,
-  IconMoodSmile,
-  IconDeviceLaptop,
-  IconSortAscending2,
-  IconSortDescending2,
-  IconAd2,
-} from '@tabler/icons-react';
-import { ProductFiterType } from 'src/types/apps/eCommerce';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'src/store/Store';
+import {Box, Button, Divider, List, ListItemButton, ListItemIcon, ListItemText, Typography} from '@mui/material';
+import {filterProducts, filterReset,} from 'src/store/apps/eCommerce/ECommerceSlice';
+import {IconCircles} from '@tabler/icons-react';
+import {ProductFilterType} from 'src/types/apps/eCommerce';
+import axios from "src/utils/axios.ts";
+
+const filterCategory: ProductFilterType[] = [
+    {
+        id: 1,
+        filterbyTitle: 'Category',
+    },
+    {
+        id: 2,
+        name: 'All',
+        sort: 'All',
+        icon: IconCircles,
+    },
+];
 
 const ProductFilter = () => {
-  const dispatch = useDispatch();
-  const active = useSelector((state) => state.ecommerceReducer.filters);
-  const checkactive = useSelector((state) => state.ecommerceReducer.sortBy);
-  const customizer = useSelector((state) => state.customizer);
-  const br = `${customizer.borderRadius}px`;
+    const dispatch = useDispatch();
+    const active = useSelector((state) => state.ecommerceReducer.filters);
+    const customizer = useSelector((state) => state.customizer);
+    const br = `${customizer.borderRadius}px`;
+    const [category, setCategory] = React.useState(filterCategory);
 
-  const filterCategory: ProductFiterType[] = [
-    {
-      id: 1,
-      filterbyTitle: 'Filter by Category',
-    },
-    {
-      id: 2,
-      name: 'All',
-      sort: 'All',
-      icon: IconCircles,
-    },
-    {
-      id: 3,
-      name: 'Fashion',
-      sort: 'fashion',
-      icon: IconHanger,
-    },
-    {
-      id: 9,
-      name: 'Books',
-      sort: 'books',
-      icon: IconNotebook,
-    },
-    {
-      id: 10,
-      name: 'Toys',
-      sort: 'toys',
-      icon: IconMoodSmile,
-    },
-    {
-      id: 11,
-      name: 'Electronics',
-      sort: 'electronics',
-      icon: IconDeviceLaptop,
-    },
-    {
-      id: 6,
-      devider: true,
-    },
-  ];
-  const filterbySort = [
-    { id: 1, value: 'newest', label: 'Newest', icon: IconAd2 },
-    { id: 2, value: 'priceDesc', label: 'Price: High-Low', icon: IconSortAscending2 },
-    { id: 3, value: 'priceAsc', label: 'Price: Low-High', icon: IconSortDescending2 },
-    { id: 4, value: 'discount', label: 'Discounted', icon: IconAd2 },
-  ];
-  const filterbyPrice = [
-    {
-      id: 0,
-      label: 'All',
-      value: 'All',
-    },
-    {
-      id: 1,
-      label: '0-50',
-      value: '0-50',
-    },
-    {
-      id: 3,
-      label: '50-100',
-      value: '50-100',
-    },
-    {
-      id: 4,
-      label: '100-200',
-      value: '100-200',
-    },
-    {
-      id: 5,
-      label: 'Over 200',
-      value: '200-99999',
-    },
-  ];
+    useEffect(() => {
+        const fetchCategory = async () => {
+            const categoryList = await axios.get('/api/categories');
 
-  const handlerPriceFilter = (value: React.ChangeEvent<HTMLInputElement>) => {
-    if (value.target.checked) {
-      dispatch(sortByPrice({ price: value.target.value }));
-    }
-  };
+            const newCategory = categoryList.data.map((item: any) => {
+                return {
+                    id: item.id,
+                    name: item.name
+                };
+            });
 
-  return (
-    <>
-      <List>
-        {/* ------------------------------------------- */}
-        {/* Category filter */}
-        {/* ------------------------------------------- */}
-        {filterCategory.map((filter) => {
-          if (filter.filterbyTitle) {
-            return (
-              <Typography variant="subtitle2" fontWeight={600} px={3} mt={2} pb={2} key={filter.id}>
-                {filter.filterbyTitle}
-              </Typography>
-            );
-          } else if (filter.devider) {
-            return <Divider key={filter.id} />;
-          }
-          return (
-            <ListItemButton
-              sx={{ mb: 1, mx: 3, borderRadius: br }}
-              selected={active.category === `${filter.sort}`}
-              onClick={() => dispatch(filterProducts({ category: `${filter.sort}` }))}
-              key={filter.id}
-            >
-              <ListItemIcon sx={{ minWidth: '30px' }}>
-                <filter.icon stroke="1.5" size="19" />
-              </ListItemIcon>
-              <ListItemText>{filter.name}</ListItemText>
-            </ListItemButton>
-          );
-        })}
-        {/* ------------------------------------------- */}
-        {/* Sort by */}
-        {/* ------------------------------------------- */}
-        <Typography variant="subtitle2" fontWeight={600} px={3} mt={3} pb={2}>
-          Sort By
-        </Typography>
-        {filterbySort.map((filter) => {
-          return (
-            <ListItemButton
-              sx={{ mb: 1, mx: 3, borderRadius: br }}
-              selected={checkactive === `${filter.value}`}
-              onClick={() => dispatch(sortByProducts(`${filter.value}`))}
-              key={filter.id + filter.label + filter.value}
-            >
-              <ListItemIcon sx={{ minWidth: '30px' }}>
-                <filter.icon stroke="1.5" size={19} />
-              </ListItemIcon>
-              <ListItemText>{filter.label}</ListItemText>
-            </ListItemButton>
-          );
-        })}
-        <Divider></Divider>
-        {/* ------------------------------------------- */}
-        {/* Filter By Pricing */}
-        {/* ------------------------------------------- */}        
-        <Typography variant="h6" px={3} mt={3} pb={2}>
-          By Pricing
-        </Typography>
-        <Box p={3} pt={0}>
-          <FormGroup>
-            {filterbyPrice.map((price) => (
-              <FormControlLabel
-                key={price.label}
-                control={
-                  <Radio
-                    value={price.value}
-                    checked={active.price === price.value}
-                    onChange={handlerPriceFilter}
-                  />
-                }
-                label={price.label}
-              />
-            ))}
-          </FormGroup>
-        </Box>
-        <Divider></Divider>
-        {/* ------------------------------------------- */}
-        {/* Reset */}
-        {/* ------------------------------------------- */}
-        <Box p={3}>
-          <Button variant="contained" onClick={() => dispatch(filterReset())} fullWidth>
-            Reset Filters
-          </Button>
-        </Box>
-      </List>
-    </>
-  );
+            const newFilterCategory = [
+                ...filterCategory,
+                ...newCategory,
+                {
+                    id: 6,
+                    devider: true,
+                },
+            ];
+
+            setCategory(newFilterCategory);
+        }
+
+        fetchCategory();
+    }, []);
+
+    return (
+        <>
+            <List>
+                {/* ------------------------------------------- */}
+                {/* Category filter */}
+                {/* ------------------------------------------- */}
+                {category.map((filter) => {
+                    if (filter.filterbyTitle) {
+                        return (
+                            <Typography variant="subtitle2" fontWeight={600} px={3} mt={2} pb={2} key={filter.id}>
+                                {filter.filterbyTitle}
+                            </Typography>
+                        );
+                    } else if (filter.devider) {
+                        return <Divider key={filter.id}/>;
+                    }
+
+                    return (
+                        <ListItemButton
+                            sx={{mb: 1, mx: 3, borderRadius: br}}
+                            selected={active.category === filter.name}
+                            onClick={() => dispatch(filterProducts({category: filter.name}))}
+                            key={filter.id}
+                        >
+                            {filter.icon ? (
+                                <ListItemIcon sx={{minWidth: '30px'}}>
+                                    <filter.icon stroke="1.5" size="19"/>
+                                </ListItemIcon>
+                            ) : null}
+                            <ListItemText>{filter.name}</ListItemText>
+                        </ListItemButton>
+                    );
+                })}
+
+                {/* ------------------------------------------- */}
+                {/* Reset */}
+                {/* ------------------------------------------- */}
+                <Box p={3}>
+                    <Button variant="contained" onClick={() => dispatch(filterReset())} fullWidth>
+                        Reset Filters
+                    </Button>
+                </Box>
+            </List>
+        </>
+    );
 };
 
 export default ProductFilter;

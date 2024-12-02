@@ -34,11 +34,11 @@ const HorizontalStepper = ({ children, steps, activeStep, finalStep }: Props) =>
         <React.Fragment>
           <Box>{finalStep}</Box>
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-            <Button variant="contained" color="success" component={Link} to="/apps/ecommerce/shop">
-              Continue Shopping
-            </Button>
+            {/*<Button variant="contained">Download Receipt</Button>*/}
             <Box sx={{ flex: '1 1 auto' }} />
-            <Button variant="contained">Download Receipt</Button>
+              <Button variant="contained" color="success" component={Link} to="/shop">
+                  Continue Shopping
+              </Button>
           </Box>
         </React.Fragment>
       ) : (
